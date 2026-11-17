@@ -1,6 +1,6 @@
 {
   "name": "@civ-clone/base-science-research",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "The research wiring a ruleset wraps in its own rules: each player's research and starting advances, choosing what to research, adding a city's research and reworking the cost, the started and complete events, an advance taken with a captured city, and the rules a requirement entry is played by.",
   "repository": "git@github.com:civ-clone/base-science-research.git",
   "keywords": [
