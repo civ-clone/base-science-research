@@ -34,7 +34,7 @@
     "@civ-clone/core-player": "^0.1.10",
     "@civ-clone/core-requirement": "^0.1.3",
     "@civ-clone/core-rule": "^0.1.9",
-    "@civ-clone/core-science": "^0.1.9",
+    "@civ-clone/core-science": "^0.1.10",
     "@civ-clone/core-yield": "^0.1.6"
   }
 }

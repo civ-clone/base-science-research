@@ -7,6 +7,7 @@ import {
 } from '../lib/requirements';
 import { emitResearchComplete, emitResearchStarted } from '../lib/events';
 import { hasAdvanceToTake, takeAdvance } from '../lib/captured';
+import gainedInPlay from '../lib/count';
 import Advance from '@civ-clone/core-science/Advance';
 import AdvanceRegistry from '@civ-clone/core-science/AdvanceRegistry';
 import ChoiceMeta from '@civ-clone/core-client/ChoiceMeta';
@@ -108,6 +109,15 @@ describe('addStartingAdvances', (): void => {
       playerResearch.complete().map((advance) => advance.constructor)
     ).to.deep.equal([Bronze, Fire, Writing]);
     expect(drawn).to.deep.equal([0.75, 0.99, 0, 0.5]);
+    // As starting advances, so that none counts as gained in play (civ-clone/web-renderer#973).
+    expect(
+      playerResearch.startingAdvances().map((advance) => advance.constructor)
+    ).to.deep.equal([Bronze, Fire, Writing]);
+    expect(gainedInPlay(playerResearch)).to.equal(0);
+
+    playerResearch.addAdvance(Wheel);
+
+    expect(gainedInPlay(playerResearch)).to.equal(1);
   });
 
   it('never gives more than are available, and draws nothing more when it gives none', (): void => {
