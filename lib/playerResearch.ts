@@ -27,7 +27,7 @@ export const addPlayerResearch = (
 /**
  * Gives `player` up to `Math.floor(upTo * rng())` advances to start with (never more than are available), each picked
  * at random from what the player could research at that point. The first number drawn sets the count; each pick then
- * draws one more.
+ * draws one more. Each is added as a starting advance (`PlayerResearch#startingAdvances()`), not one gained in play.
  */
 export const addStartingAdvances = (
   player: Player,
@@ -49,7 +49,8 @@ export const addStartingAdvances = (
     const available = playerResearch.available();
 
     playerResearch.addAdvance(
-      available[Math.floor(randomNumberGenerator() * available.length)]
+      available[Math.floor(randomNumberGenerator() * available.length)],
+      { starting: true }
     );
   }
 };

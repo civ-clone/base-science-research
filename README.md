@@ -4,7 +4,9 @@ The research wiring, for a ruleset to wrap in its own `Added`, `Action`, `Proces
 `Complete`, `Captured` and `Requirements` rules with its own ids, numbers and criteria:
 
 - `lib/playerResearch`: `addPlayerResearch(player, …)` gives a player a `PlayerResearch`; `addStartingAdvances(player,
-  upTo, rng, …)` gives up to `Math.floor(upTo * rng())` random advances from those available.
+  upTo, rng, …)` gives up to `Math.floor(upTo * rng())` random advances from those available, as starting advances.
+- `lib/count`: `gainedInPlay(playerResearch)`, the advances known less those the player started with, for a ruleset's
+  `AdvanceCount` rule.
 - `lib/choose`: `notResearching` and `canResearch`, criteria, and `chooseResearch(ChooseResearch, …)`, the effect that
   offers the ruleset's `ChooseResearch` player action.
 - `lib/progress`: `addResearch(…)`, a `ProcessYield` effect adding a city's research to its player's, and
